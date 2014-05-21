@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-    "regexp"
+	"regexp"
 )
 
 func main() {
@@ -15,10 +15,9 @@ func main() {
 	}
 	defer resp.Body.Close()
 
-    regex := regexp.MustCompile("(?:<div id=\"anzeige_zeit\">(.*)</div>)")
+	regex := regexp.MustCompile("(?:<div id=\"anzeige_zeit\">(.*)</div>)")
 
 	body, err := ioutil.ReadAll(resp.Body)
-    matches := regex.FindSubmatch(body)
-    fmt.Println(string(matches[1]))
-
+	matches := regex.FindSubmatch(body)
+	fmt.Println(string(matches[1]))
 }
